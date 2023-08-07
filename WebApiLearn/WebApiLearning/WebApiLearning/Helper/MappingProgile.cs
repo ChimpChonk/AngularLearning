@@ -9,6 +9,7 @@ namespace WebApiLearning.Helper
         public MappingProgile()
         {
             CreateMap<Pokemon, PokemonDto>();
+            CreateMap<Category, CategoryDto>();
         }
     }
 }

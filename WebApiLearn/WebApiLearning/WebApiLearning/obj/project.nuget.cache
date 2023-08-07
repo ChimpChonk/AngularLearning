@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t13vCYAvB/qlOnNseIKQoInxcLUqZWtxORwjCEJSqIifDpwhCL8tQm1VppvdY5hjzks2AszCJcNfLaTXHIrkEQ==",
+  "dgSpecHash": "YL0Qtf7TkThcdByY/J4z6/ng4Blo/3Fn6Pp9Y+R2SozKxlUUvNUw+a5rUcFQ5GRqMrfZajAvI9VND+QwwTBXAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sp\\Desktop\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj",
+  "projectFilePath": "C:\\Users\\sp\\Desktop\\Projeckt test\\AngularToturial\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sp\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\sp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

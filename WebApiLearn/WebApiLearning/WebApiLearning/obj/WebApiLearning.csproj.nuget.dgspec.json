@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sp\\Desktop\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj": {}
+    "C:\\Users\\sp\\Desktop\\Projeckt test\\AngularToturial\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sp\\Desktop\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj": {
+    "C:\\Users\\sp\\Desktop\\Projeckt test\\AngularToturial\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sp\\Desktop\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj",
+        "projectUniqueName": "C:\\Users\\sp\\Desktop\\Projeckt test\\AngularToturial\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj",
         "projectName": "WebApiLearning",
-        "projectPath": "C:\\Users\\sp\\Desktop\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj",
+        "projectPath": "C:\\Users\\sp\\Desktop\\Projeckt test\\AngularToturial\\WebApiLearn\\WebApiLearning\\WebApiLearning\\WebApiLearning.csproj",
         "packagesPath": "C:\\Users\\sp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sp\\Desktop\\WebApiLearn\\WebApiLearning\\WebApiLearning\\obj\\",
+        "outputPath": "C:\\Users\\sp\\Desktop\\Projeckt test\\AngularToturial\\WebApiLearn\\WebApiLearning\\WebApiLearning\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
