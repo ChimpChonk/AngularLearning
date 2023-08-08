@@ -15,7 +15,7 @@ namespace WebApiLearning.Repository
             _context = context;
             _mapper = mapper;
         }
-        public bool countryExists(int id)
+        public bool CountryExists(int id)
         {
             return _context.Countries.Any(c => c.Id == id);
         }

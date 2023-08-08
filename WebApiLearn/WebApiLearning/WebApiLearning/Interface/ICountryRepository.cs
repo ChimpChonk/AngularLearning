@@ -8,6 +8,6 @@ namespace WebApiLearning.Interface
         Country GetCountry(int id);
         Country GetCountryByOwner(int ownerId);
         ICollection<Owner> GetOwnersFromCountry(int ownerId);
-        bool countryExists(int id);
+        bool CountryExists(int id);
     }
 }
