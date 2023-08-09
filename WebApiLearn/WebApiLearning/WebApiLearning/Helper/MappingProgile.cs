@@ -12,7 +12,9 @@ namespace WebApiLearning.Helper
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
             CreateMap<Country, CountryDto>();
+            CreateMap<CountryDto, Country>();
             CreateMap<Owner, OwnerDto>();
+            CreateMap<OwnerDto, Owner>();
             CreateMap<Reviewer, ReviewerDto>();
             CreateMap<Review, ReviewDto>();
         }
