@@ -10,6 +10,7 @@ namespace WebApiLearning.Interface
         ICollection<Owner> GetOwnersFromCountry(int ownerId);
         bool CountryExists(int id);
         bool CreateCountry(Country country);
+        bool UpdateCountry(Country country);
         bool Save();
     }
 }
