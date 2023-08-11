@@ -36,13 +36,19 @@ namespace WebApiLearning.Repository
 
         public bool ReviewExists(int reviewId)
         {
-            return _context.Reviewers.Any(c => c.Id == reviewId);
+            return _context.Reviews.Any(c => c.Id == reviewId);
         }
 
         public bool Save()
         {
             var saved = _context.SaveChanges();
             return saved > 0 ? true : false;
+        }
+
+        public bool UpdateReview(Review review)
+        {
+            _context.Update(review);
+            return Save();
         }
     }
 }
