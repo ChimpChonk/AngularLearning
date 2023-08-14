@@ -1,1 +1,2 @@
-<a *ngFor="let item of data">{{item.name}} {{item.birthDate}}</a>
+<a *ngFor="let item of data">{{item | json}}</a>
+<!-- {{data | json}} -->

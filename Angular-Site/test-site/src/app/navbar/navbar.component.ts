@@ -7,7 +7,6 @@ import { ApiDataService } from '../api-data.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  navItems: any[] = [];
   data: any;
 
   constructor(private apiDataService: ApiDataService){}
@@ -15,10 +14,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
       this.fetchData();
   }
+  endpoint: string = 'reviewer';
 
 
   fetchData(): void {
-    this.apiDataService.getData().subscribe(
+    this.apiDataService.getData(this.endpoint).subscribe(
       (response) => {
         this.data = response;
       },

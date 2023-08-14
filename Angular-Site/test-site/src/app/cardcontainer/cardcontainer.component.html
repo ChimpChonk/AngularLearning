@@ -1,1 +1,10 @@
-<p>cardcontainer works!</p>
+<div *ngFor="let item of data">
+    <div class="card">
+        <div class="card-content">
+            <h2 class="card-title">{{item.name}}</h2>
+            <p class="card-text">Id: {{item.id}}</p>
+            <p class="card-text">Date of Birth: {{item.birthDate.split("T")[0]}}</p>
+        </div>
+    </div>
+</div>
+    

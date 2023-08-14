@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiDataService {
-  private apiUrl = 'https://localhost:7246/api/Pokemon';
+  private apiUrl = 'https://localhost:7246/api/';
+  endpoint: string = '';
   
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<any>{
-    return this.http.get<any>(this.apiUrl);
+  getData(endpoint): Observable<any>{
+    return this.http.get<any>(this.apiUrl + endpoint);
   }
 }
