@@ -1,10 +1,13 @@
 <div *ngFor="let item of data">
     <div class="card">
-        <div class="card-content">
-            <h2 class="card-title">{{item.name}}</h2>
-            <p class="card-text">Id: {{item.id}}</p>
-            <p class="card-text">Date of Birth: {{item.birthDate.split("T")[0]}}</p>
+      <div class="card-content">
+        <h2 class="card-title">{{ item.name }}</h2>
+        <p class="card-text">Id: {{ item.id }}</p>
+        <p class="card-text">Date of Birth: {{ item.birthDate.split("T")[0] }}</p>
+        <div *ngFor="let v in (fetchDataByIdAndEndpoint(item.id, 'rating'))"> <!-- Use v.rating directly -->
+          <p class="card-text">Rating: {{ v.rating }}</p>
         </div>
+      </div>
     </div>
-</div>
-    
+  </div>
+  
