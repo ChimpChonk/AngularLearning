@@ -23,50 +23,7 @@ interface Data {
   styleUrls: ['./cardcontainer.component.css']
 })
 
-export class CardcontainerComponent implements OnInit {
-  data: Data[] = [];
-  endpoint: string = 'pokemon';
-  endpoint2: string = '';
-  idData: Data[] = [];
-  idAndEndpointData: Rating[] = [];
+export class CardcontainerComponent {
 
-  constructor(private apiDataService: ApiDataService) {}
-
-  ngOnInit(): void {
-    this.fetchData();
-  }
-
-  fetchData(): void {
-    this.apiDataService.getData(this.endpoint).subscribe(
-      (response: Data[]) => {
-        this.data = response;
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
-
-  fetchDataById(id: number): void {
-    this.apiDataService.getDataById(this.endpoint, id).subscribe(
-      (response: Data[]) => {
-        this.idData = response;
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
-
-  fetchDataByIdAndEndpoint(id: number, endpoint2: string): void {
-    this.apiDataService.getDataByIdAndEndpoint(this.endpoint, id, endpoint2).subscribe(
-      (response: Rating[]) => {
-        this.idAndEndpointData = response;
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
 }
 

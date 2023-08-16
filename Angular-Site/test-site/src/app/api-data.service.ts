@@ -11,16 +11,18 @@ export class ApiDataService {
   
   constructor(private http: HttpClient) { }
 
-  getData(endpoint: string): Observable<any>{
-    return this.http.get<any>(this.apiUrl + endpoint).pipe(retry(3));
+  getData(endpoint: string, id?: number, endpoint2?: string): Observable<any> {
+    let url = this.apiUrl + endpoint;
 
+    if (id !== undefined) {
+      url += '/' + id;
+
+      if (endpoint2 !== undefined) {
+        url += '/' + endpoint2;
+      }
+    }
+
+    return this.http.get<any>(url);
   }
 
-  getDataById(endpoint: string, id: number): Observable<any>{
-    return this.http.get<any>(this.apiUrl + endpoint + '/' + id).pipe(retry(3));
-  }
-
-  getDataByIdAndEndpoint(endpoint: string, id: number, endpoint2: string): Observable<any>{
-    return this.http.get<any>(this.apiUrl + endpoint + '/' + id + '/' + endpoint2).pipe(retry(3));
-  }
 }
