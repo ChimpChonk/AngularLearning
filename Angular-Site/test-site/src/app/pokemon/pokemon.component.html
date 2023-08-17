@@ -1,3 +1,11 @@
+<div>
+  <button (click)="toggleForm()">Add Pokemon</button>
+</div>
+
+<div>
+
+</div>
+
 <div class="card-container">
   <div *ngFor="let pokemon of pokemons">
     <div class="card">
@@ -6,7 +14,7 @@
           <p class="card-text">Name: {{ pokemon.name }}</p>
           <p class="card-text">Date of Birth: {{ pokemon.birthDate.split("T")[0] }}</p>   
           <p class="card-text">Rating: {{pokemon.rating}}</p>    
-          <p class="card-text">Category: {{pokemon.category.category}}</p>
+          <p class="card-text">Category: {{pokemon.category}}</p>
           <!-- <p *ngFor="let rating of pokemon.rating">Rating: {{ rating }}</p>  -->
         </div>
       </div>

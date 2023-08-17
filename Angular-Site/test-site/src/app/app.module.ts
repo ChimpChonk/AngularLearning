@@ -12,7 +12,9 @@ import { CategoryComponent } from './category/category.component';
 import { CountryComponent } from './country/country.component';
 import { OwnerComponent } from './owner/owner.component';
 import { ReviewComponent } from './review/review.component';
-import { ReviewersComponent } from './reviewers/reviewers.component'
+import { ReviewersComponent } from './reviewers/reviewers.component';
+import { AddPokemonComponent } from './add-pokemon/add-pokemon.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { ReviewersComponent } from './reviewers/reviewers.component'
     CountryComponent,
     OwnerComponent,
     ReviewComponent,
-    ReviewersComponent
+    ReviewersComponent,
+    AddPokemonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

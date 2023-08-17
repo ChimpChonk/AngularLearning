@@ -39,7 +39,7 @@ export class PokemonComponent implements OnInit {
   fetchCategoryForPokemons(): void {
     for (const pokemon of this.pokemons) {
       this.apiDataService.getData("pokemon", pokemon.id,'category').subscribe(category => {
-        pokemon.category = category;
+        pokemon.category = category.category;
         console.log(pokemon.category);
       });
     }
