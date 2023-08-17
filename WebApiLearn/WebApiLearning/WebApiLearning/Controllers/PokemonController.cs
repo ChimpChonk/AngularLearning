@@ -77,6 +77,23 @@ namespace WebApiLearning.Controllers
             return Ok(rating);
         }
 
+        [HttpGet("{pokeId}/category")]
+        [ProducesResponseType(200, Type = typeof(Pokemon))]
+        [ProducesResponseType(400)]
+        public IActionResult GetPokemonCategory(int pokeId)
+        {
+            if(!_pokemonRepository.PokemonExists(pokeId))
+                return NotFound();
+
+            var category = _pokemonRepository.GetPokemonCategory(pokeId);
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(new { Category = category });
+        }
+
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]

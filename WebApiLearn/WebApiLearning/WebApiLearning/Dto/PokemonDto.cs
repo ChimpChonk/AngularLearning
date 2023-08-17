@@ -1,4 +1,6 @@
-﻿namespace WebApiLearning.Dto
+﻿using WebApiLearning.Models;
+
+namespace WebApiLearning.Dto
 {
     public class PokemonDto
     {

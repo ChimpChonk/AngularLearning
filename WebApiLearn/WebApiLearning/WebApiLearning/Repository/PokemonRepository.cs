@@ -51,6 +51,16 @@ namespace WebApiLearning.Repository
             return _context.Pokemon.Where(p => p.Name == name).FirstOrDefault();
         }
 
+        public string GetPokemonCategory(int pokeId)
+        {
+            var category = _context.Categories.Where(p => p.PokemonCategories.Any(c => c.Pokemon.Id == pokeId)).FirstOrDefault();
+            if(category == null)
+            {
+                return "None";
+            }
+            return category.Name;
+        }
+
         public decimal GetPokemonRating(int pokeId)
         {
             var review = _context.Reviews.Where(p => p.Pokemon.Id == pokeId);

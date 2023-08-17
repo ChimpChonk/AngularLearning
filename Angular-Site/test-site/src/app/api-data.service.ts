@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, retry } from 'rxjs';
+import { Observable, catchError, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,9 @@ export class ApiDataService {
 
     return this.http.get<any>(url);
   }
+
+  createData(endpoint: string): Observable<any> {
+    return this.http.post<any>(this.apiUrl + endpoint, {});
+  } 
 
 }

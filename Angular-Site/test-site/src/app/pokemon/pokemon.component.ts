@@ -7,6 +7,7 @@ export interface Pokemon {
   name: string;
   birthDate: Date;
   rating: number;
+  category: string;
 }
 
 @Component({
@@ -22,6 +23,7 @@ export class PokemonComponent implements OnInit {
     this.apiDataService.getData('Pokemon').subscribe((data: Pokemon[]) => {
       this.pokemons = data;
       this.fetchReviewsForPokemons();
+      this.fetchCategoryForPokemons();
     });
   }
 
@@ -30,6 +32,15 @@ export class PokemonComponent implements OnInit {
       this.apiDataService.getData("pokemon", pokemon.id,'rating').subscribe(rating => {
         pokemon.rating = rating;
         console.log(pokemon.rating);
+      });
+    }
+  }
+
+  fetchCategoryForPokemons(): void {
+    for (const pokemon of this.pokemons) {
+      this.apiDataService.getData("pokemon", pokemon.id,'category').subscribe(category => {
+        pokemon.category = category;
+        console.log(pokemon.category);
       });
     }
   }

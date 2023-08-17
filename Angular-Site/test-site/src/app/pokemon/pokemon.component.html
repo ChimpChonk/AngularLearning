@@ -1,13 +1,16 @@
-<div *ngFor="let pokemon of pokemons">
+<div class="card-container">
+  <div *ngFor="let pokemon of pokemons">
     <div class="card">
-        <div class="card-content">
-          <p class="card-text">Id: {{ pokemon.id }}</p>
+      <div class="card-content">
+        <p class="card-text">Id: {{ pokemon.id }}</p>
           <p class="card-text">Name: {{ pokemon.name }}</p>
           <p class="card-text">Date of Birth: {{ pokemon.birthDate.split("T")[0] }}</p>   
           <p class="card-text">Rating: {{pokemon.rating}}</p>    
+          <p class="card-text">Category: {{pokemon.category.category}}</p>
           <!-- <p *ngFor="let rating of pokemon.rating">Rating: {{ rating }}</p>  -->
         </div>
       </div>
+  </div>
 </div>
-  
+
 
