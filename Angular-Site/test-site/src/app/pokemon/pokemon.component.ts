@@ -17,6 +17,7 @@ export interface Pokemon {
 })
 export class PokemonComponent implements OnInit {
   pokemons: any[] = [];
+  showForm: boolean = false;
 
   constructor(private apiDataService: ApiDataService) { }
   ngOnInit(): void {
@@ -44,4 +45,9 @@ export class PokemonComponent implements OnInit {
       });
     }
   }
+
+  toggleForm(): void {
+    this.showForm = !this.showForm;
+  }
+    
 }
