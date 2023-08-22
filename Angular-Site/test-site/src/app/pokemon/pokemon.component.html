@@ -1,30 +1,4 @@
-<div>
-  <button (click)="toggleForm()">Add Pokemon</button>
-</div>
-
-<!-- <div *ngIf="showForm">
-  <form>
-    <div>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" [(ngModel)]="pokemons.name">
-    </div>
-    <div>
-      <label for="birthDate">Date of Birth</label>
-      <input type="date" id="birthDate" name="birthDate" [(ngModel)]="pokemon.birthDate">
-    </div>
-    <div>
-      <label for="rating">Rating</label>
-      <input type="number" id="rating" name="rating" [(ngModel)]="pokemon.rating">
-    </div>
-    <div>
-      <label for="category">Category</label>
-      <input type="text" id="category" name="category" [(ngModel)]="pokemon.category">
-    </div>
-    <div>
-      <button (click)="addPokemon()">Add</button>
-    </div>
-  </form>
-</div> -->
+<button>Add Pokemon</button>
 
 <div class="card-container">
   <div *ngFor="let pokemon of pokemons">
@@ -35,7 +9,6 @@
           <p class="card-text">Date of Birth: {{ pokemon.birthDate.split("T")[0] }}</p>   
           <p class="card-text">Rating: {{pokemon.rating}}</p>    
           <p class="card-text">Category: {{pokemon.category}}</p>
-          <!-- <p *ngFor="let rating of pokemon.rating">Rating: {{ rating }}</p>  -->
         </div>
       </div>
   </div>

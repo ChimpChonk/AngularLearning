@@ -46,8 +46,4 @@ export class PokemonComponent implements OnInit {
     }
   }
 
-  toggleForm(): void {
-    this.showForm = !this.showForm;
-  }
-    
 }

@@ -1,1 +1,21 @@
-<p>add-pokemon works!</p>
+<h1>Add Pokemon</h1>
+
+<form #pokemonForm="ngForm" (ngSubmit)="getPokemaneData(pokemonForm.value)">
+  <label for="name">Name: </label>
+  <input type="text" name="name" ngModel placeholder="Enter Name" required>
+  <br>
+  <label for="birthDate">Birthdate: </label>
+  <input type="date" ngModel name="birthDate" placeholder="BirthDate" required>
+  <br>
+  <label for="owner">Select Owner:</label>
+  <select id="owner" [(ngModel)]="selectedOwner" name="ownerId" (ngModelChange)="onOwnerSelected()">
+    <option *ngFor="let owner of owners" [value]="owner.id">{{ owner.firstName +" " + owner.lastName}}</option>
+  </select>
+  <br>
+  <label for="category">Select Category:</label>
+  <select id="category" [(ngModel)]="selectedCategory" name="catId" (ngModelChange)="onCategorySelected()">
+    <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+  </select>
+  <br> <br>
+  <button>Add</button>
+</form>
