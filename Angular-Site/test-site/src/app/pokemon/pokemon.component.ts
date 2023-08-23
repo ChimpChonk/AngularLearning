@@ -32,7 +32,6 @@ export class PokemonComponent implements OnInit {
     for (const pokemon of this.pokemons) {
       this.apiDataService.getData("pokemon", pokemon.id,'rating').subscribe(rating => {
         pokemon.rating = rating;
-        console.log(pokemon.rating);
       });
     }
   }
@@ -41,7 +40,6 @@ export class PokemonComponent implements OnInit {
     for (const pokemon of this.pokemons) {
       this.apiDataService.getData("pokemon", pokemon.id,'category').subscribe(category => {
         pokemon.category = category.category;
-        console.log(pokemon.category);
       });
     }
   }

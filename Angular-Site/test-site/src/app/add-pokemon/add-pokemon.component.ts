@@ -45,7 +45,6 @@ export class AddPokemonComponent implements OnInit{
     // }
 
     this.selectedOwnerId = this.selectedOwner;
-    console.log(this.selectedOwnerId);
   }
 
   onCategorySelected(): void {
@@ -57,7 +56,6 @@ export class AddPokemonComponent implements OnInit{
     // }
     // console.log(selectedCategory);
     this.selectedCategoryId = this.selectedCategory;
-    console.log(this.selectedCategoryId);
   }
 
   // createData(name: any, birthDate: any): void {
@@ -77,9 +75,8 @@ export class AddPokemonComponent implements OnInit{
       birthDate: pokebirth,
     };
   
-    console.log(newPokemon.name, newPokemon.birthDate);
   
-    this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId, 'catId', this.selectedCategoryId, newPokemon)
+    this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId, 'catId', this.selectedCategoryId)
     .subscribe({
       next: (data: Pokemon) => {
         console.log('Newly Created Pokemon:', data);
