@@ -4,8 +4,6 @@ import { ApiDataService } from '../api-data.service';
 export interface Pokemon {
   name: string;
   birthDate: Date;
-  ownerId: number;
-  catId: number;
 }
 
 @Component({
@@ -36,29 +34,61 @@ export class AddPokemonComponent implements OnInit{
   }
 
   onOwnerSelected(): void {
-    const selectedOwner = this.owners.find((owner) => owner.id === this.selectedOwner);
-    if (selectedOwner) {
-      this.selectedOwnerId = selectedOwner.ownerId;
-    } else {
-      this.selectedOwnerId = -1;
-    }
-    this.cdr.markForCheck(); 
+    // console.log('Selected Owner ID:', this.selectedOwner);
+    // console.log('Owners:', this.owners);
+    // const selectedOwner = this.owners.find((owner) => owner.id === this.selectedOwner);
+    // console.log(selectedOwner);
+    // if (selectedOwner) {
+    //   this.selectedOwnerId = selectedOwner.ownerId;
+    // } else {
+    //   this.selectedOwnerId = -1;
+    // }
+
+    this.selectedOwnerId = this.selectedOwner;
+    console.log(this.selectedOwnerId);
   }
 
   onCategorySelected(): void {
-    const selectedCategory = this.categories.find((category) => category.id === this.selectedCategory);
-    if (selectedCategory) {
-      this.selectedCategoryId = selectedCategory.categoryId;
-    } else {
-      this.selectedCategoryId = -1;
-    }
-    this.cdr.markForCheck();
+    // const selectedCategory = this.categories.find((category) => category.id === this.selectedCategory);
+    // if (selectedCategory) {
+    //   this.selectedCategoryId = selectedCategory.categoryId;
+    // } else {
+    //   this.selectedCategoryId = -1;
+    // }
+    // console.log(selectedCategory);
+    this.selectedCategoryId = this.selectedCategory;
+    console.log(this.selectedCategoryId);
   }
 
-  getPokemaneData(data: any): void {
-    this.apiDataService.createData('Pokemon').subscribe((data: Pokemon) => {
-      this.poke = data;});
-    console.warn(data);
-    
+  // createData(name: any, birthDate: any): void {
+  //   const newPokemon: Pokemon = {
+  //     name: name.name,
+  //     birthDate: birthDate.birthDate,
+  //   };
+  //   this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId ,'catId', this.selectedCategoryId, newPokemon).subscribe((data: Pokemon) => {
+  //     data = newPokemon;
+  //     console.warn(data);
+  //   });
+  // }
+
+  createPokemonData(pokename: any, pokebirth: any): void {
+    const newPokemon: Pokemon = {
+      name: pokename,
+      birthDate: pokebirth,
+    };
+  
+    console.log(newPokemon.name, newPokemon.birthDate);
+  
+    this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId, 'catId', this.selectedCategoryId, newPokemon)
+    .subscribe({
+      next: (data: Pokemon) => {
+        console.log('Newly Created Pokemon:', data);
+      },
+      error: (error) => {
+        console.error('HTTP Error:', error);
+      }
+    });
   }
+  
+  
 }
