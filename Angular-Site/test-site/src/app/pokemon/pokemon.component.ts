@@ -44,4 +44,9 @@ export class PokemonComponent implements OnInit {
     }
   }
 
+  deletePokemon(id: number): void {
+    this.apiDataService.deleteData('Pokemon', id).subscribe(() => {
+      this.pokemons = this.pokemons.filter(pokemon => pokemon.id !== id);
+    });
+  }
 }

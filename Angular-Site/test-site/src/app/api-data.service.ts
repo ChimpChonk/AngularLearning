@@ -28,23 +28,64 @@ export class ApiDataService {
 
   createData(endpoint: string, field1?: string, field1Value?: number, field2?: string, field2Value?: number, data?: any): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      responseType: 'text',
+      'Content-Type': 'application/json', // This header indicates the format you're sending in the request
       // Add other headers here
     });
-
+  
     let params: any = new HttpParams();
-
+  
     if (field1 && field1Value) {
       params = params.append(field1, field1Value.toString());
     }
     if (field2 && field2Value) {
       params = params.append(field2, field2Value.toString());
     }
+  
+    console.log("Params:", params);
+    console.log("Headers:", headers);
+    
+    // Use HttpClient.request method with custom configuration
+    return this.http.request('post', `${this.apiUrl}${endpoint}`, {
+      headers,
+      params,
+      body: data,
+      responseType: 'text'
+    });
+  }
 
-    console.log("Prams " + params);
-    console.log("Header: " + headers);
+  deleteData(endpoint: string, id?: number): Observable<any> {
+    let url = this.apiUrl + endpoint;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
-    return this.http.post<any>(`${this.apiUrl}${endpoint}`, data, { headers, params });
+    return this.http.request('delete', `${url}/${id}`, {headers, responseType: 'text'});
+  }
+
+  updateData(endpoint: string, id?: number, field1?: string, field1Value?: number, field2?: string, field2Value?: number, data?: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json', // This header indicates the format you're sending in the request
+      // Add other headers here
+    });
+  
+    let params: any = new HttpParams();
+  
+    if (field1 && field1Value) {
+      params = params.append(field1, field1Value.toString());
+    }
+    if (field2 && field2Value) {
+      params = params.append(field2, field2Value.toString());
+    }
+  
+    console.log("Params:", params);
+    console.log("Headers:", headers);
+    
+    // Use HttpClient.request method with custom configuration
+    return this.http.request('put', `${this.apiUrl}${endpoint}/${id}`, {
+      headers,
+      params,
+      body: data,
+      responseType: 'text'
+    });
   }
 }

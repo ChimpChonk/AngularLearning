@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiDataService } from '../api-data.service';
+import { catchError } from 'rxjs/operators';
 
 export interface Pokemon {
   name: string;
@@ -21,8 +22,6 @@ export class AddPokemonComponent implements OnInit{
   selectedCategoryId: number = -1;
 
   constructor(private apiDataService: ApiDataService, private cdr: ChangeDetectorRef) {
-    // this.apiDataService.createData('Pokemon').subscribe((data: Pokemon) => {
-    //   this.poke = data;});
    }
   ngOnInit(): void {
     this.apiDataService.getData('Owner').subscribe((data: any[]) => {
@@ -34,40 +33,12 @@ export class AddPokemonComponent implements OnInit{
   }
 
   onOwnerSelected(): void {
-    // console.log('Selected Owner ID:', this.selectedOwner);
-    // console.log('Owners:', this.owners);
-    // const selectedOwner = this.owners.find((owner) => owner.id === this.selectedOwner);
-    // console.log(selectedOwner);
-    // if (selectedOwner) {
-    //   this.selectedOwnerId = selectedOwner.ownerId;
-    // } else {
-    //   this.selectedOwnerId = -1;
-    // }
-
     this.selectedOwnerId = this.selectedOwner;
   }
 
   onCategorySelected(): void {
-    // const selectedCategory = this.categories.find((category) => category.id === this.selectedCategory);
-    // if (selectedCategory) {
-    //   this.selectedCategoryId = selectedCategory.categoryId;
-    // } else {
-    //   this.selectedCategoryId = -1;
-    // }
-    // console.log(selectedCategory);
     this.selectedCategoryId = this.selectedCategory;
   }
-
-  // createData(name: any, birthDate: any): void {
-  //   const newPokemon: Pokemon = {
-  //     name: name.name,
-  //     birthDate: birthDate.birthDate,
-  //   };
-  //   this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId ,'catId', this.selectedCategoryId, newPokemon).subscribe((data: Pokemon) => {
-  //     data = newPokemon;
-  //     console.warn(data);
-  //   });
-  // }
 
   createPokemonData(pokename: any, pokebirth: any): void {
     const newPokemon: Pokemon = {
@@ -75,17 +46,16 @@ export class AddPokemonComponent implements OnInit{
       birthDate: pokebirth,
     };
   
-  
-    this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId, 'catId', this.selectedCategoryId)
+    this.apiDataService.createData('Pokemon', 'ownerId', this.selectedOwnerId, 'catId', this.selectedCategoryId, newPokemon)
     .subscribe({
       next: (data: Pokemon) => {
         console.log('Newly Created Pokemon:', data);
       },
       error: (error) => {
         console.error('HTTP Error:', error);
+        console.log('Full Error Response:', error.error); // Log the full response
+        // Handle error here if needed
       }
     });
   }
-  
-  
 }
