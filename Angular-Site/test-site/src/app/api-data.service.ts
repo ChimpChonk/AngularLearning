@@ -62,7 +62,7 @@ export class ApiDataService {
     return this.http.request('delete', `${url}/${id}`, {headers, responseType: 'text'});
   }
 
-  updateData(endpoint: string, id?: number, field1?: string, field1Value?: number, field2?: string, field2Value?: number, data?: any): Observable<any> {
+  updateData(endpoint: string, id?: number, field1?: string, field1Value?: number, field2?: string, field2Value?: number, field3?: string, field3value?: number, data?: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json', // This header indicates the format you're sending in the request
       // Add other headers here
@@ -75,6 +75,9 @@ export class ApiDataService {
     }
     if (field2 && field2Value) {
       params = params.append(field2, field2Value.toString());
+    }
+    if (field3 && field3value) {
+      params = params.append(field3, field3value.toString());
     }
   
     console.log("Params:", params);

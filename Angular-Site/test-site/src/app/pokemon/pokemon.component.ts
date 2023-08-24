@@ -49,4 +49,10 @@ export class PokemonComponent implements OnInit {
       this.pokemons = this.pokemons.filter(pokemon => pokemon.id !== id);
     });
   }
+
+  //update pokemon
+  updatePokemon(){
+
+    
+  }
 }
