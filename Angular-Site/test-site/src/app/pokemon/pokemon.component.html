@@ -9,12 +9,11 @@
           <p class="card-text">Date of Birth: {{ pokemon.birthDate.split("T")[0] }}</p>   
           <p class="card-text">Rating: {{pokemon.rating}}</p>    
           <p class="card-text">Category: {{pokemon.category}}</p>
-          <button (click)="updatePokemon()">Edit</button>
+          <button routerLink="/edit-pokemon/{{pokemon.id}}">Edit</button>
           <button (click)="deletePokemon(pokemon.id)">Delete</button>
         </div>
       </div>
   </div>
 </div>
-<!-- <app-add-pokemon></app-add-pokemon> -->
 
 

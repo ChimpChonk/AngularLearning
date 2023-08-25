@@ -7,6 +7,7 @@ import { OwnerComponent } from './owner/owner.component';
 import { ReviewComponent } from './review/review.component';
 import { ReviewersComponent } from './reviewers/reviewers.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
+import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'review', component: ReviewComponent },
   { path: 'reviewers', component: ReviewersComponent },
   { path: 'add-pokemon', component: AddPokemonComponent },
+  { path: 'edit-pokemon/:id', component: EditPokemonComponent },
 ];
 
 @NgModule({

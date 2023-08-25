@@ -51,8 +51,4 @@ export class PokemonComponent implements OnInit {
   }
 
   //update pokemon
-  updatePokemon(){
-
-    
-  }
 }
