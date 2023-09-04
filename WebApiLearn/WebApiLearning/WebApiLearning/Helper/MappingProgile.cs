@@ -20,6 +20,8 @@ namespace WebApiLearning.Helper
             CreateMap<ReviewerDto, Reviewer>();
             CreateMap<Review, ReviewDto>();
             CreateMap<ReviewDto, Review>();
+            CreateMap<UserDTO, User>();
+            CreateMap<User, UserDTO>();
         }
     }
 }
