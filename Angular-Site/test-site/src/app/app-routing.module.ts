@@ -8,6 +8,7 @@ import { ReviewComponent } from './review/review.component';
 import { ReviewersComponent } from './reviewers/reviewers.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'reviewers', component: ReviewersComponent },
   { path: 'add-pokemon', component: AddPokemonComponent },
   { path: 'edit-pokemon/:id', component: EditPokemonComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

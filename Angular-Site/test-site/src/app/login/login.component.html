@@ -1,0 +1,8 @@
+<div class="log-form">
+    <h2>Login</h2>
+    <form #loginForm="ngForm" (ngSubmit)="LoginSubmit()">
+        <input type="text" formControlName="username" placeholder="Username" required="required" />
+        <input type="password" formControlName="password" placeholder="Password" required="required" />
+        <button type="submit" class="btn">Log in</button>
+    </form>
+</div>

@@ -1,8 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Reflection.Metadata;
+using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using WebApiLearning.Dto;
 using WebApiLearning.Interface;
@@ -16,11 +21,13 @@ namespace WebApiLearning.Controllers
     {
         private readonly IUserRepository _userRepo;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _config;
 
-        public UserController(IUserRepository userRepo, IMapper mapper)
+        public UserController(IUserRepository userRepo, IMapper mapper, IConfiguration config)
         {
             _userRepo = userRepo;
             _mapper = mapper;
+            _config = config;
         }
 
         [HttpPost("register")]
@@ -42,7 +49,7 @@ namespace WebApiLearning.Controllers
 
             if (_userRepo.CreateUser(user))
             {
-                return Ok(user);
+                return Ok("Success");
             }
             else
             {
@@ -65,8 +72,29 @@ namespace WebApiLearning.Controllers
                 return BadRequest("Password Incorrect");
             }
 
+            string token = CreateToken(user);
             // You may want to return some user data or a token upon successful login.
             return Ok("Login Successful");
+        }
+
+        private string CreateToken(User user)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Username)
+            };
+
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(1),
+                signingCredentials: creds);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return string.Empty;
         }
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

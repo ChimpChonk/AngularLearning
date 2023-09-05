@@ -16,6 +16,7 @@ import { ReviewersComponent } from './reviewers/reviewers.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component'
 import { FormsModule } from '@angular/forms';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
     ReviewComponent,
     ReviewersComponent,
     AddPokemonComponent,
-    EditPokemonComponent
+    EditPokemonComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
