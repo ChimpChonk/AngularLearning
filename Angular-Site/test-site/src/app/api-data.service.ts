@@ -25,6 +25,19 @@ export class ApiDataService {
     return this.http.get<any>(url);
   }
 
+  login(username: string, password: string): Observable<any> {
+    const body = {
+      username: username,
+      password: password
+    };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(`${this.apiUrl}User/login`, body, { headers, responseType: 'text' });
+  }
+
 
   createData(endpoint: string, field1?: string, field1Value?: number, field2?: string, field2Value?: number, data?: any): Observable<any> {
     const headers = new HttpHeaders({
@@ -91,4 +104,13 @@ export class ApiDataService {
       responseType: 'text'
     });
   }
+
+  createLogin(endpoint: string, action: string, data?: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+  
+    return this.http.post(`${this.apiUrl}${endpoint}/${action}`, data, { headers, responseType: 'text' });
+  }
+
 }
