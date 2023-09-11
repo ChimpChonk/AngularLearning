@@ -26,6 +26,11 @@ namespace WebApiLearning.Repository
             return Save();
         }
 
+        public ICollection<User> GetUsers()
+        {
+            return _context.Users.ToList();
+        }   
+
         public User GetUser(int userId)
         {
             return _context.Users.FirstOrDefault(u => u.Id == userId);

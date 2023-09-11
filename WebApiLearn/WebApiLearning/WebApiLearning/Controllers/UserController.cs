@@ -114,5 +114,20 @@ namespace WebApiLearning.Controllers
                 return computedHash.SequenceEqual(passwordHash);
             }
         }
+
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(User))]
+        [ProducesResponseType(400)]
+        public IActionResult GetUsers()
+        {
+            var users = _mapper.Map<List<UserDTO>>(_userRepo.GetUsers());
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok(users);
+        }
+
     }
 }

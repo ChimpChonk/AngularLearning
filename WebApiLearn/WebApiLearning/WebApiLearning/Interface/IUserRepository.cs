@@ -11,5 +11,6 @@ namespace WebApiLearning.Interface
         bool Save();
         bool UpdateUser(User user);
         bool DeleteUser(User user);
+        object GetUsers();
     }
 }
