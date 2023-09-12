@@ -115,19 +115,19 @@ namespace WebApiLearning.Controllers
             }
         }
 
-        [HttpGet]
-        [ProducesResponseType(200, Type = typeof(User))]
-        [ProducesResponseType(400)]
-        public IActionResult GetUsers()
-        {
-            var users = _mapper.Map<List<UserDTO>>(_userRepo.GetUsers());
+        //[HttpGet]
+        //[ProducesResponseType(200, Type = typeof(User))]
+        //[ProducesResponseType(400)]
+        //public IActionResult GetUsers()
+        //{
+        //    var users = _mapper.Map<List<UserDTO>>(_userRepo.GetUser());
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            return Ok(users);
-        }
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    return Ok(users);
+        //}
 
     }
 }
